@@ -1,14 +1,13 @@
 {
   "name": "@rounb-ror/common-react",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Commonly used React items",
   "private": false,
   "type": "module",
   "main": "dist/index",
   "files": [ "dist" ],
   "scripts": {
-    "build": "rd /S /Q dist && mkdir dist && babel src --out-dir dist --copy-files",
-    "push_pub": "git push && npm publish"
+    "build": "rd /S /Q dist && mkdir dist && babel src --out-dir dist --copy-files"
   },
   "repository": {
     "type": "git",
