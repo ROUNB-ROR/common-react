@@ -1,0 +1,35 @@
+// # Pagination
+ul.pagination {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: .25rem;
+  margin-bottom: 0;
+}
+
+a.page-link {
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  font-size: clamp(10px, 4vw, 24px);
+  background-color: #fff;  
+}
+
+li.page-item.active a.page-link {
+  z-index: 3;
+  color: #fff;
+}
+
+// Hiding most of the page items on the narrow screens
+
+li.page-item {
+  @media(max-width: 721px) {
+    display: none;
+  }
+}
+
+li.page-item:first-child, li.page-item.active, li.page-item:last-child {
+  display: block;
+}

@@ -1,5 +1,6 @@
 import DeleteButton from './DeleteButton';
-import FormItem from './FormItem/FormItem';
-import Message from './Message/Message';
+import FormItem from './FormItem';
+import Message from './Message';
+import Pagination from './Pagination';
 
-export { DeleteButton, FormItem, Message };
+export { DeleteButton, FormItem, Message, Pagination };
