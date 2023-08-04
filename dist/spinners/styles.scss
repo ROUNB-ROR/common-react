@@ -64,11 +64,25 @@
   border-width: 1em;
 }
 
+//
 .busy-inner-container {
-  width: unset;
-  height: min(40%, 20vh);
   aspect-ratio: 1 / 1;
 }
+
+@media (orientation: landscape) {
+  .busy-inner-container {
+    width: unset;
+    height: min(40%, 20vh);
+  }
+}
+
+@media (orientation: portrait) {
+  .busy-inner-container {
+    width: min(40%, 20vw);
+    height: unset;
+  }
+}
+
 
 .busy-spinner {
   @extend .app-spinner;
