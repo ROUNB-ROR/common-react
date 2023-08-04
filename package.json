@@ -1,8 +1,10 @@
 {
   "name": "@rounb-ror/common-react",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Commonly used React items",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [ "dist" ],
   "scripts": {
     "build": "rd /S /Q dist && mkdir dist && babel src --out-dir dist --copy-files"
   },
