@@ -1,0 +1,6 @@
+@import '../styles.scss';
+
+.message-in-page {
+  @extend .app-element;
+  font-size: 64px;
+}
