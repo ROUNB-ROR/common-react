@@ -8,7 +8,7 @@
   "files": [ "dist" ],
   "scripts": {
     "build": "rd /S /Q dist && mkdir dist && babel src --out-dir dist --copy-files",
-    "publish": "git push && npm publish"
+    "push_pub": "git push && npm publish"
   },
   "repository": {
     "type": "git",
