@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import RBForm from 'react-bootstrap/Form';
-import '../scss/form-item.scss';
+import './styles.scss';
 import { isValid, isInvalid, getFeedback } from './validation';
 
 //
