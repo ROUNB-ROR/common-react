@@ -2,11 +2,17 @@
 
 Commonly used React items
 
+# Building
+
+Build distributable files using Babel
+
+    npm run build
+
 # Publishing
 
 Increase version in package.json.
 
-Push changes to Git
+Commit changes and push them to remote
 
     git push
 

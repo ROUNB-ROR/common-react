@@ -1,10 +1,10 @@
 {
   "name": "@rounb-ror/common-react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Commonly used React items",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rd /S /Q dist && mkdir dist && babel src --out-dir dist --copy-files"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/ROUNB-ROR/common-react#readme",
   "devDependencies": {
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "@babel/preset-react": "^7.22.5",
     "eslint": "^8.37.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.27.5",
