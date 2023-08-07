@@ -1,12 +1,13 @@
 {
   "name": "@rounb-ror/common-react",
-  "version": "1.0.35",
+  "version": "1.0.36",
   "description": "Commonly used React items",
   "private": false,
   "type": "commonjs",
   "exports": {
     "." : "./dist/index",
     "./components" : "./dist/components/index",
+    "./components/*" : "./dist/components/index",
     "./helpers" : "./dist/helpers/index",
     "./helpers/*" : "./dist/helpers/*",
     "./services" : "./dist/services/index",
