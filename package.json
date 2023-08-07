@@ -1,12 +1,13 @@
 {
   "name": "@rounb-ror/common-react",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "description": "Commonly used React items",
   "private": false,
   "type": "commonjs",
   "exports": {
     "." : "./dist/index",
-    "./components" : "./dist/components/index.js",
+    "./components" : "./dist/components/index",
+    "./services" : "./dist/services/index",
     "./styles.scss" : "./dist/components/styles.scss"
   },
   "files": [ "dist" ],
