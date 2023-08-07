@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Spinner from 'react-bootstrap/Spinner';
 
 // Spinner for inputs. Takes some space on the right side of input
-// Requires position-relative class for parent container
+// Requires position-relative d-flex align-items-center classes for parent container
 export default function InputBusy(props) {
   const { visible } = props;
   // Resulting component
