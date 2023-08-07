@@ -33,7 +33,9 @@ export default function ErrorPage() {
         </Row>
         <Row className="mt-5">
           <Col xs={12} className="d-flex justify-content-center">
-            <Link to="/">Повернутись на головну сторінку</Link>
+            <p>
+              <Link to="/">Повернутись на головну сторінку</Link>
+            </p>
           </Col>
         </Row>
       </Col>

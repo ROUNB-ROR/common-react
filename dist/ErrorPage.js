@@ -36,7 +36,7 @@ export default function ErrorPage() {
   }, /*#__PURE__*/React.createElement(Col, {
     xs: 12,
     className: "d-flex justify-content-center"
-  }, /*#__PURE__*/React.createElement(Link, {
+  }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement(Link, {
     to: "/"
-  }, "\u041F\u043E\u0432\u0435\u0440\u043D\u0443\u0442\u0438\u0441\u044C \u043D\u0430 \u0433\u043E\u043B\u043E\u0432\u043D\u0443 \u0441\u0442\u043E\u0440\u0456\u043D\u043A\u0443")))));
+  }, "\u041F\u043E\u0432\u0435\u0440\u043D\u0443\u0442\u0438\u0441\u044C \u043D\u0430 \u0433\u043E\u043B\u043E\u0432\u043D\u0443 \u0441\u0442\u043E\u0440\u0456\u043D\u043A\u0443"))))));
 }
