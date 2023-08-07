@@ -1,8 +1,9 @@
 // based on https://codepen.io/judag/pen/XmXMOL
 
 import React, { useEffect, useState } from 'react';
+
 import Particle from './Particle';
-import FireworksService from './Service';
+import FireworksService from '../../services/fireworking';
 
 //
 export default function Fireworker() {
@@ -33,7 +34,7 @@ export default function Fireworker() {
   };
 
   //
-  const onDoFireworks = time => {
+  const onDoFireworks = (time) => {
     // If the previous timer is set then cleaning it
     if (cleanupTimerId) {
       clearTimeout(cleanupTimerId);
@@ -59,6 +60,7 @@ export default function Fireworker() {
   //
   const onFireworksClick = () => {
     stopFireworks();
+
     clearTimeout(cleanupTimerId);
     setCleanupTimerId(null);
   };
@@ -78,11 +80,12 @@ export default function Fireworker() {
   const createFirework = () => {
     const w = window.innerWidth;
     const h = window.innerHeight;
+
     const xPoint = Math.random() * (w - 200) + 100;
     const yPoint = Math.random() * (h - 200) + 100;
     const nFire = Math.random() * 50 + 100;
     // eslint-disable-next-line no-bitwise
-    const c = `rgb(${~~(Math.random() * 200 + 55)},${~~(Math.random() * 200 + 55)},${~~(Math.random() * 200 + 55)})`;
+    const c = `rgb(${(~~(Math.random() * 200 + 55))},${(~~(Math.random() * 200 + 55))},${(~~(Math.random() * 200 + 55))})`;
     for (let i = 0; i < nFire; i += 1) {
       const particle = new Particle(xPoint, yPoint);
       particle.color = c;
@@ -163,12 +166,17 @@ export default function Fireworker() {
     // Cleaning the callback
     FireworksService.onDoFireworks = null;
   }, []);
-  return isFireworking ? /*#__PURE__*/React.createElement("div", {
-    id: "fireworks",
-    role: "presentation",
-    onClick: () => onFireworksClick(),
-    onKeyUp: () => onFireworksClick()
-  }, /*#__PURE__*/React.createElement("canvas", {
-    id: "fireworksCanvas"
-  })) : '';
+
+  return isFireworking
+    ? (
+      <div
+        id="fireworks"
+        role="presentation"
+        onClick={() => onFireworksClick()}
+        onKeyUp={() => onFireworksClick()}
+      >
+        <canvas id="fireworksCanvas" />
+      </div>
+    )
+    : '';
 }

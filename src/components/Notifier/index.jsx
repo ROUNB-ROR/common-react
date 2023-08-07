@@ -4,7 +4,7 @@ import Toast from 'react-bootstrap/Toast';
 import ToastHeader from 'react-bootstrap/ToastHeader';
 import ToastBody from 'react-bootstrap/ToastBody';
 
-import NotificationService from './service';
+import NotificationService from '../../services/notifying';
 
 //
 export default function Notifier() {
