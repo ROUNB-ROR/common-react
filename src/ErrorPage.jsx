@@ -26,12 +26,16 @@ export default function ErrorPage() {
         <Row>
           <Message header="Помилка!" text={errorText} />
         </Row>
-        <p className="mt-5 text-center">
-          <Button onClick={() => navigate(-1)}>Назад</Button>
-        </p>
-        <p className="mt-5 text-center">
-          <Link to="/">Повернутись на головну сторінку</Link>
-        </p>
+        <Row className="mt-5">
+          <Col xs={12} className="d-flex justify-content-center">
+            <Button onClick={() => navigate(-1)}>Назад</Button>
+          </Col>
+        </Row>
+        <Row className="mt-5">
+          <Col xs={12} className="d-flex justify-content-center">
+            <Link to="/">Повернутись на головну сторінку</Link>
+          </Col>
+        </Row>
       </Col>
     </Row>
   );
