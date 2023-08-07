@@ -3,7 +3,7 @@
   "version": "1.0.23",
   "description": "Commonly used React items",
   "private": false,
-  "type": "module",
+  "type": "commonjs",
   "main": "dist/index",
   "files": [ "dist" ],
   "scripts": {
