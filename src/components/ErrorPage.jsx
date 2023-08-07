@@ -24,9 +24,17 @@ export default function ErrorPage() {
         errorText = 'Такий ресурс не знайдено.\nСпробуйте перевірити посилання.';
         break;
       }
+      // Conflict
+      case 409: {
+        errorText = 'Даний запит неможливий так як викликає конфлікт';
+        break;
+      }
       // Too Many Requests
       case 429: {
         errorText = 'Вибачте, однак Ви здійснили занадто багато запитів за короткий проміжок часу. Спробуйте зачекати та оновити сторінку знову';
+        break;
+      }
+      default: {
         break;
       }
     }
