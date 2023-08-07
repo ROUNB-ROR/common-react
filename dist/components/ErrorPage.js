@@ -10,8 +10,28 @@ export default function ErrorPage() {
   const error = useRouteError();
   //
   let errorText = error.statusText || error.message;
-  if (error.response && error.response.status === 404) {
-    errorText = 'Такий ресурс не знайдено.\nСпробуйте перевірити посилання.';
+  const {
+    response
+  } = error;
+  if (response) {
+    const {
+      status
+    } = response;
+    // Custom messages from some codes
+    switch (status) {
+      // Not Found
+      case 404:
+        {
+          errorText = 'Такий ресурс не знайдено.\nСпробуйте перевірити посилання.';
+          break;
+        }
+      // Too Many Requests
+      case 429:
+        {
+          errorText = 'Вибачте, однак Ви здійснили занадто багато запитів за короткий проміжок часу. Спробуйте зачекати та оновити сторінку знову';
+          break;
+        }
+    }
   }
 
   // Component
