@@ -1,5 +1,5 @@
-import { AuthenticationStorage } from '../authentication_storage';
-import TokensService from './models/tokens_service';
+import AuthenticationStorage from '../authentication_storage';
+import TokensService from './models/tokens';
 
 //
 export default class AuthenticationService {

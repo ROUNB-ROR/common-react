@@ -1,4 +1,4 @@
-import { DataService } from '../data';
+import DataService from '../data';
 
 //
 const API_PATH = '/api/tokens';
