@@ -1,4 +1,4 @@
-import { AuthenticationStorage } from '../authentication_storage';
+import AuthenticationStorage from '../authentication_storage';
 
 import TokensService from './models/tokens';
 
