@@ -8,6 +8,7 @@
     "." : "./dist/index",
     "./components" : "./dist/components/index",
     "./helpers" : "./dist/helpers/index",
+    "./helpers/*" : "./dist/helpers/*",
     "./services" : "./dist/services/index",
     "./styles.scss" : "./dist/components/styles.scss"
   },
