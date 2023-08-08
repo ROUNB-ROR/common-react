@@ -1,3 +1,5 @@
+import LoggingService from '../services/logging';
+
 export default class GaHelper {
   // Sets the tag for further reporting
   static setTag(tag) {
@@ -15,8 +17,7 @@ export default class GaHelper {
         send_to: GaHelper.tag,
       });
     } else {
-      // eslint-disable-next-line no-console
-      console.error('GaHelper tag is not set.');
+      LoggingService.logError('GaHelper tag is not set.');
     }
   }
 }
