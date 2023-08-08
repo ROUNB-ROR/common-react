@@ -6,11 +6,11 @@ export default class UsersService extends BasicService {
 
   // Returns current user
   static async getCurrent() {
-    return DataService.get(`${UsersService.apiPath}/current`);
+    return DataService.get(`${this.apiPath}/current`);
   }
 
   // Set password
   static async setPassword(form) {
-    return DataService.patch(`${UsersService.apiPath}/current/password`, form);
+    return DataService.patch(`${this.apiPath}/current/password`, form);
   }
 }

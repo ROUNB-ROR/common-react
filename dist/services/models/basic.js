@@ -1,17 +1,14 @@
 import DataService from '../data';
 import LoggingService from '../logging';
 export default class BasicService {
-  // Path to API, should be initialized in derived classes
-  static apiPath = null;
-
   // Create
   static async add(data) {
     let location = null;
     // Checking whether API path is set
-    if (!BasicService.apiPath) {
+    if (!this.apiPath) {
       LoggingService.logError('API path is not set.');
     } else {
-      const result = await DataService.post(BasicService.apiPath, data);
+      const result = await DataService.post(this.apiPath, data);
       location = result.location;
     }
     return location;
@@ -21,10 +18,10 @@ export default class BasicService {
   static async get(id) {
     let result = null;
     // Checking whether API path is set
-    if (!BasicService.apiPath) {
+    if (!this.apiPath) {
       LoggingService.logError('API path is not set.');
     } else {
-      result = DataService.get(`${BasicService.apiPath}/${id}`);
+      result = DataService.get(`${this.apiPath}/${id}`);
     }
     return result;
   }
@@ -33,10 +30,10 @@ export default class BasicService {
   static async getAll() {
     let result = null;
     // Checking whether API path is set
-    if (!BasicService.apiPath) {
+    if (!this.apiPath) {
       LoggingService.logError('API path is not set.');
     } else {
-      result = DataService.get(BasicService.apiPath);
+      result = DataService.get(this.apiPath);
     }
     return result;
   }
@@ -45,10 +42,10 @@ export default class BasicService {
   static async update(id, data) {
     let result = null;
     // Checking whether API path is set
-    if (!BasicService.apiPath) {
+    if (!this.apiPath) {
       LoggingService.logError('API path is not set.');
     } else {
-      result = DataService.patch(`${BasicService.apiPath}/${id}`, data);
+      result = DataService.patch(`${this.apiPath}/${id}`, data);
     }
     return result;
   }
@@ -57,10 +54,10 @@ export default class BasicService {
   static async delete(id) {
     let result = null;
     // Checking whether API path is set
-    if (!BasicService.apiPath) {
+    if (!this.apiPath) {
       LoggingService.logError('API path is not set.');
     } else {
-      result = DataService.delete(`${BasicService.apiPath}/${id}`);
+      result = DataService.delete(`${this.apiPath}/${id}`);
     }
     return result;
   }
