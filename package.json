@@ -1,6 +1,6 @@
 {
   "name": "@rounb-ror/common-react",
-  "version": "1.0.39",
+  "version": "1.0.40",
   "description": "Commonly used React items",
   "private": false,
   "type": "commonjs",
@@ -8,10 +8,11 @@
     "." : "./dist/index",
     "./components" : "./dist/components/index",
     "./components/*.js" : "./dist/components/*.js",
-    "./components/*" : "./dist/components/*/input",
+    "./components/*" : "./dist/components/*/index",
     "./helpers" : "./dist/helpers/index",
     "./helpers/*" : "./dist/helpers/*",
     "./services" : "./dist/services/index",
+    "./services/*" : "./dist/services/*/index",
     "./styles.scss" : "./dist/components/styles.scss"
   },
   "files": [ "dist" ],
