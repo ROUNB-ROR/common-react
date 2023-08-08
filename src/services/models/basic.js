@@ -27,6 +27,15 @@ export default class BasicService {
     return result;
   }
 
+  /**
+ * Returns entities for given query
+ * @param {*} query
+ * @returns
+ */
+  static async getMany(query) {
+    return DataService.get(`${this.apiPath}${query}`);
+  }
+
   //
   static async getAll() {
     let result = null;
