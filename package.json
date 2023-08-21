@@ -1,6 +1,6 @@
 {
   "name": "@rounb-ror/common-react",
-  "version": "1.0.44",
+  "version": "1.0.45",
   "description": "Commonly used React items",
   "private": false,
   "type": "commonjs",
@@ -13,6 +13,7 @@
     "./helpers/*" : "./dist/helpers/*",
     "./services" : "./dist/services/index",
     "./services/*" : "./dist/services/*/index",
+    "./styles" : "./dist/components/styles.scss",
     "./styles.scss" : "./dist/components/styles.scss"
   },
   "files": [ "dist" ],

@@ -1,3 +1,18 @@
 form, .invalid-feedback {
   font-size: 23px!important;
 }
+
+//
+.horizontal > div {
+  @extend .d-flex;
+  @extend .align-items-center;
+}
+
+.horizontal .form-label {
+  margin-bottom: 0px;
+  margin-right: 8px;
+}
+
+.horizontal .form-control {
+  margin-right: 16px;
+}
