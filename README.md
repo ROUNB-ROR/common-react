@@ -2,18 +2,20 @@
 
 Commonly used React items
 
+# Testing
+
+Run Vite in dev mode
+
+    npm run dev
+
+Open local link and add 
+
+    /test/index.html
+
 # Publishing
 
 Increase version in package.json.
 
-Build distributable files using Babel
+Run npm script to build, commit changes and publish.
 
-    npm run build
-
-Commit changes and push them to remote
-
-    git push
-
-Publish package to npm
-
-    npm publish
+    npm run publish
