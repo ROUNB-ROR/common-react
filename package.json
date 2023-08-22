@@ -1,6 +1,6 @@
 {
   "name": "@rounb-ror/common-react",
-  "version": "1.0.52",
+  "version": "1.0.53",
   "description": "Commonly used React items",
   "private": false,
   "type": "commonjs",
