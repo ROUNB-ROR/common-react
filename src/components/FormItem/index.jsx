@@ -15,26 +15,39 @@ export default function FormItem(props) {
     displayName, hidden, placeholder, errors,
   } = props;
 
-  // Basic class
+  //
+  const label = hidden ? '' : <RBForm.Label>{displayName}</RBForm.Label>;
+
+  // Classes for control
   const controlClasses = [];
   if (horizontal) controlClasses.push('m-2');
   if (fullwidth) controlClasses.push('flex-grow-1');
   const controlClassName = controlClasses.join(' ');
-
-  //
-  const label = hidden ? '' : <RBForm.Label>{displayName}</RBForm.Label>;
-
-  // Controls with feedback
-  const controls = (
-    <>
-      {label}
+  // Control element
+  let controlElement = '';
+  if (type === 'checkbox') {
+    controlElement = (
+      <RBForm.Check
+        name={name}
+        className={controlClassName}
+        as={as}
+        type={type}
+        hidden={hidden}
+        id={name}
+        defaultValue={value}
+        isValid={isValid(errors, name)}
+        isInvalid={isInvalid(errors, name)}
+      />
+    );
+  } else {
+    controlElement = (
       <RBForm.Control
         name={name}
         className={controlClassName}
         as={as}
         type={type}
         accept={accept}
-        htmlSize={size}
+        htmlsize={size}
         maxLength={size}
         min={min}
         max={max}
@@ -46,6 +59,14 @@ export default function FormItem(props) {
         isValid={isValid(errors, name)}
         isInvalid={isInvalid(errors, name)}
       />
+    )
+  }
+
+  // Controls with feedback
+  const controls = (
+    <>
+      {label}
+      {controlElement}
     </>
   );
   const feedback = getFeedback(errors, name);
@@ -53,8 +74,8 @@ export default function FormItem(props) {
   // Different wrapping depending on layout
   const result = horizontal
     ? (
-      <div className="horizontal">
-        <div className={fullwidth ? 'd-flex' : ''}>{controls}</div>
+      <div className={`horizontal d-flex${fullwidth ? ' flex-grow-1' : ''}`}>
+        <div className={fullwidth ? 'd-flex flex-grow-1' : ''}>{controls}</div>
         {feedback}
       </div>
     )

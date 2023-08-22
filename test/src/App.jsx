@@ -12,13 +12,15 @@ function App() {
   return (
     <Container fluid>
       <Row>
-        <Col>
+        <Col xs={12}>
           { /* Reader's number */}
           <FormItem
             name="number"
             displayName="№ чит. кв.:"
             errors={validationErrors}
           />
+        </Col>
+        <Col xs={12}>
           { /* Reader's number horizontal */}
           <FormItem
             name="number_horizontal"
@@ -26,12 +28,21 @@ function App() {
             horizontal
             errors={validationErrors}
           />
+        </Col>
+        <Col xs={12} className="d-flex">
           { /* Reader's number horizontal fullwidth */}
           <FormItem
             name="number_horizontal_fullwidth"
             displayName="№ чит. кв.:"
             horizontal
             fullwidth
+            errors={validationErrors}
+          />
+          <FormItem
+            name="female"
+            displayName="Жінка?"
+            type="checkbox"
+            horizontal
             errors={validationErrors}
           />
         </Col>
