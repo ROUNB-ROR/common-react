@@ -26,6 +26,14 @@ function App() {
             horizontal
             errors={validationErrors}
           />
+          { /* Reader's number horizontal fullwidth */}
+          <FormItem
+            name="number_horizontal_fullwidth"
+            displayName="№ чит. кв.:"
+            horizontal
+            fullwidth
+            errors={validationErrors}
+          />
         </Col>
       </Row>
     </Container>

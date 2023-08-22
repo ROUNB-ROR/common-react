@@ -18,4 +18,4 @@ Increase version in package.json.
 
 Run npm script to build, commit changes and publish.
 
-    npm run publish
+    npm run publ

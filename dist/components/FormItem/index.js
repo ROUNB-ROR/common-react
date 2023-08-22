@@ -13,6 +13,7 @@ export default function FormItem(props) {
     value,
     type,
     horizontal,
+    fullwidth,
     accept,
     size,
     min,
@@ -25,7 +26,10 @@ export default function FormItem(props) {
   } = props;
 
   // Basic class
-  const controlClassName = horizontal ? 'm-2' : '';
+  const controlClasses = [];
+  if (horizontal) controlClasses.push('m-2');
+  if (fullwidth) controlClasses.push('flex-grow-1');
+  const controlClassName = controlClasses.join(' ');
 
   //
   const label = hidden ? '' : /*#__PURE__*/React.createElement(RBForm.Label, null, displayName);
@@ -54,7 +58,9 @@ export default function FormItem(props) {
   // Different wrapping depending on layout
   const result = horizontal ? /*#__PURE__*/React.createElement("div", {
     className: "horizontal"
-  }, /*#__PURE__*/React.createElement("div", null, controls), feedback) : /*#__PURE__*/React.createElement(RBForm.Group, null, controls, feedback);
+  }, /*#__PURE__*/React.createElement("div", {
+    className: fullwidth ? 'd-flex' : ''
+  }, controls), feedback) : /*#__PURE__*/React.createElement(RBForm.Group, null, controls, feedback);
   return result;
 }
 FormItem.defaultProps = {
@@ -62,6 +68,7 @@ FormItem.defaultProps = {
   as: 'input',
   type: 'text',
   horizontal: false,
+  fullwidth: false,
   accept: '',
   size: null,
   rows: 1,
@@ -78,6 +85,7 @@ FormItem.propTypes = {
   displayName: PropTypes.string.isRequired,
   type: PropTypes.string,
   horizontal: PropTypes.bool,
+  fullwidth: PropTypes.bool,
   accept: PropTypes.string,
   size: PropTypes.number,
   rows: PropTypes.number,

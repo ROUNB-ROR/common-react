@@ -11,12 +11,15 @@ import { isValid, isInvalid, getFeedback } from './validation';
 export default function FormItem(props) {
   //
   const {
-    name, as, value, type, horizontal, accept, size, min, max, rows,
+    name, as, value, type, horizontal, fullwidth, accept, size, min, max, rows,
     displayName, hidden, placeholder, errors,
   } = props;
 
   // Basic class
-  const controlClassName = horizontal ? 'm-2' : '';
+  const controlClasses = [];
+  if (horizontal) controlClasses.push('m-2');
+  if (fullwidth) controlClasses.push('flex-grow-1');
+  const controlClassName = controlClasses.join(' ');
 
   //
   const label = hidden ? '' : <RBForm.Label>{displayName}</RBForm.Label>;
@@ -51,7 +54,7 @@ export default function FormItem(props) {
   const result = horizontal
     ? (
       <div className="horizontal">
-        <div>{controls}</div>
+        <div className={fullwidth ? 'd-flex' : ''}>{controls}</div>
         {feedback}
       </div>
     )
@@ -70,6 +73,7 @@ FormItem.defaultProps = {
   as: 'input',
   type: 'text',
   horizontal: false,
+  fullwidth: false,
   accept: '',
   size: null,
   rows: 1,
@@ -87,6 +91,7 @@ FormItem.propTypes = {
   displayName: PropTypes.string.isRequired,
   type: PropTypes.string,
   horizontal: PropTypes.bool,
+  fullwidth: PropTypes.bool,
   accept: PropTypes.string,
   size: PropTypes.number,
   rows: PropTypes.number,

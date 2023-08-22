@@ -1,6 +1,6 @@
 {
   "name": "@rounb-ror/common-react",
-  "version": "1.0.47",
+  "version": "1.0.48",
   "description": "Commonly used React items",
   "private": false,
   "type": "commonjs",
@@ -22,7 +22,7 @@
   "scripts": {
     "dev": "vite",
     "build": "rd /S /Q dist && mkdir dist && babel src --out-dir dist --copy-files",
-    "publish": "npm run build && git add . && git commit && git push && npm publish"
+    "publ": "npm run build && git add . && git commit && git push && npm publish"
   },
   "repository": {
     "type": "git",
