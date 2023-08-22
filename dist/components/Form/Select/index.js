@@ -25,6 +25,14 @@ export default function FormItem(props) {
   if (horizontal) controlClasses.push('m-2');
   if (fullwidth) controlClasses.push('flex-grow-1');
   const controlClassName = controlClasses.join(' ');
+  // Options
+  let controlOptions = '';
+  if (items) {
+    controlOptions = /*#__PURE__*/React.createElement(React.Fragment, null, items.map(item => /*#__PURE__*/React.createElement("option", {
+      value: item.value,
+      key: `${name}${item.value}`
+    }, item.display)));
+  }
   // Control element
   const controlElement = /*#__PURE__*/React.createElement(RBForm.Select, {
     name: name,
@@ -33,10 +41,7 @@ export default function FormItem(props) {
     defaultValue: value,
     isValid: isValid(errors, name),
     isInvalid: isInvalid(errors, name)
-  }, items.map(item => /*#__PURE__*/React.createElement("option", {
-    value: item.value,
-    key: `${name}${item.value}`
-  }, item.display)));
+  }, controlOptions);
 
   // Controls with feedback
   const controls = /*#__PURE__*/React.createElement(React.Fragment, null, label, controlElement);

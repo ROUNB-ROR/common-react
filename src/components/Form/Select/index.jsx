@@ -21,6 +21,21 @@ export default function FormItem(props) {
   if (horizontal) controlClasses.push('m-2');
   if (fullwidth) controlClasses.push('flex-grow-1');
   const controlClassName = controlClasses.join(' ');
+  // Options
+  let controlOptions = '';
+  if (items) {
+    controlOptions = (
+      <>
+        {
+          items.map((item) => (
+            <option value={item.value} key={`${name}${item.value}`}>
+              {item.display}
+            </option>
+          ))
+        }
+      </>
+    );
+  }
   // Control element
   const controlElement = (
     <RBForm.Select
@@ -31,13 +46,7 @@ export default function FormItem(props) {
       isValid={isValid(errors, name)}
       isInvalid={isInvalid(errors, name)}
     >
-      {
-        items.map((item) => (
-          <option value={item.value} key={`${name}${item.value}`}>
-            {item.display}
-          </option>
-        ))
-      }
+      {controlOptions}
     </RBForm.Select>
   );
 
