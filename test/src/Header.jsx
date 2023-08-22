@@ -9,7 +9,10 @@ export default function Header() {
     <Navbar variant="light">
       <Nav>
         <Nav.Item>
-          <Nav.Link as={Link} to="/form-items">FormItem</Nav.Link>
+          <Nav.Link as={Link} to="/form-items">Form.Items</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link as={Link} to="/form-selects">Form.Selects</Nav.Link>
         </Nav.Item>
       </Nav>
     </Navbar>

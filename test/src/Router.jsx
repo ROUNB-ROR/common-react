@@ -9,12 +9,14 @@ import Root from './Root';
 
 //
 import FormItems from './routes/FormItems';
+import FormSelects from './routes/FormSelects';
 
 // Routes
 const router = createBrowserRouter([{
   Component: Root,
   children: [
     { path: 'form-items', Component: FormItems },
+    { path: 'form-selects', Component: FormSelects },
 
     // Title
     { path: '', element: '' },

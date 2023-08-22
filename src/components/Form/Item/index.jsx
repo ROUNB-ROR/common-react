@@ -5,7 +5,7 @@ import RBForm from 'react-bootstrap/Form';
 
 import './styles.scss';
 
-import { isValid, isInvalid, getFeedback } from './validation';
+import { isValid, isInvalid, getFeedback } from '../validation';
 
 //
 export default function FormItem(props) {

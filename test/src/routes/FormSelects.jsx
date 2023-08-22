@@ -5,43 +5,45 @@ import Col from 'react-bootstrap/Col';
 
 import { Form } from '../../../src/components/index';
 
-export default function FormItems() {
+export default function FormSelects() {
   const validationErrors = {};
+
+  const items = [
+    { display: '123', value: '123' },
+    { display: '444', value: '444' },
+    { display: '555', value: '555' },
+  ];
 
   return (
     <Row>
       <Col xs={12}>
         { /* Reader's number */}
-        <Form.Item
+        <Form.Select
           name="number"
           displayName="По-замовчуванню:"
           errors={validationErrors}
+          items={items}
         />
       </Col>
       <Col xs={12}>
-        { /* Reader's number horizontal */}
-        <Form.Item
-          name="number_horizontal"
+        { /* Reader's number */}
+        <Form.Select
+          name="number"
           displayName="Горизонтальний:"
           horizontal
           errors={validationErrors}
+          items={items}
         />
       </Col>
-      <Col xs={12} className="d-flex">
-        { /* Reader's number horizontal fullwidth */}
-        <Form.Item
-          name="number_horizontal_fullwidth"
-          displayName="Горизонтальний на повну ширину"
+      <Col xs={8} className="d-flex">
+        { /* Reader's number */}
+        <Form.Select
+          name="number"
+          displayName="Горизонтальний, на повну ширину:"
           horizontal
           fullwidth
           errors={validationErrors}
-        />
-        <Form.Item
-          name="female"
-          displayName="Жінка?"
-          type="checkbox"
-          horizontal
-          errors={validationErrors}
+          items={items}
         />
       </Col>
     </Row>
