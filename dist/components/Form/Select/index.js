@@ -64,7 +64,7 @@ FormItem.defaultProps = {
 };
 FormItem.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.shape]),
   displayName: PropTypes.string.isRequired,
   horizontal: PropTypes.bool,
   fullwidth: PropTypes.bool,
