@@ -11,8 +11,8 @@ import { isValid, isInvalid, getFeedback } from '../validation';
 export default function FormItem(props) {
   //
   const {
-    name, as, value, type, horizontal, fullwidth, accept, size, min, max, rows,
-    displayName, hidden, placeholder, errors,
+    name, as, value, type, autocomplete, horizontal, fullwidth, accept, size,
+    min, max, rows, displayName, hidden, placeholder, errors,
   } = props;
 
   //
@@ -46,6 +46,7 @@ export default function FormItem(props) {
         className={controlClassName}
         as={as}
         type={type}
+        autocomplete={autocomplete ? 'on' : 'off'}
         accept={accept}
         htmlsize={size}
         maxLength={size}
@@ -93,6 +94,7 @@ FormItem.defaultProps = {
   value: '',
   as: 'input',
   type: 'text',
+  autocomplete: false,
   horizontal: false,
   fullwidth: false,
   accept: '',
@@ -111,6 +113,7 @@ FormItem.propTypes = {
   as: PropTypes.string,
   displayName: PropTypes.string.isRequired,
   type: PropTypes.string,
+  autocomplete: PropTypes.bool,
   horizontal: PropTypes.bool,
   fullwidth: PropTypes.bool,
   accept: PropTypes.string,
