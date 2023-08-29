@@ -46,7 +46,7 @@ export default function FormItem(props) {
         className={controlClassName}
         as={as}
         type={type}
-        autocomplete={autocomplete ? 'on' : 'off'}
+        autoComplete={autocomplete ? 'on' : 'off'}
         accept={accept}
         htmlsize={size}
         maxLength={size}
