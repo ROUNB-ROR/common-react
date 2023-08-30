@@ -9,12 +9,19 @@ export default function DeleteButton(props) {
   const {
     enabled,
     deletePath,
-    entityName
+    entityName,
+    onConfirm
   } = props;
   // Id to delete
   const [show, setShow] = useState(false);
   const handleShowModal = () => setShow(true);
   const handleHideModal = () => setShow(false);
+
+  //
+  const handleConfirm = () => {
+    handleHideModal();
+    onConfirm();
+  };
 
   // Modal for delete confirmation
   let modal = '';
@@ -28,7 +35,7 @@ export default function DeleteButton(props) {
       as: Link,
       variant: "danger",
       to: deletePath,
-      onClick: () => handleHideModal()
+      onClick: () => handleConfirm()
     }, "\u0412\u0438\u0434\u0430\u043B\u0438\u0442\u0438"), /*#__PURE__*/React.createElement(Button, {
       variant: "secondary",
       onClick: () => handleHideModal()
@@ -48,10 +55,12 @@ export default function DeleteButton(props) {
 DeleteButton.propTypes = {
   enabled: PropTypes.bool,
   deletePath: PropTypes.string.isRequired,
-  entityName: PropTypes.string.isRequired
+  entityName: PropTypes.string.isRequired,
+  onConfirm: PropTypes.func
 };
 
 // default values
 DeleteButton.defaultProps = {
-  enabled: true
+  enabled: true,
+  onConfirm: () => {}
 };

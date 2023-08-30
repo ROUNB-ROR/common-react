@@ -7,11 +7,19 @@ import Modal from 'react-bootstrap/Modal';
 
 // Delete button with confirmation modal
 export default function DeleteButton(props) {
-  const { enabled, deletePath, entityName } = props;
+  const {
+    enabled, deletePath, entityName, onConfirm,
+  } = props;
   // Id to delete
   const [show, setShow] = useState(false);
   const handleShowModal = () => setShow(true);
   const handleHideModal = () => setShow(false);
+
+  //
+  const handleConfirm = () => {
+    handleHideModal();
+    onConfirm();
+  };
 
   // Modal for delete confirmation
   let modal = '';
@@ -32,7 +40,7 @@ export default function DeleteButton(props) {
             as={Link}
             variant="danger"
             to={deletePath}
-            onClick={() => handleHideModal()}
+            onClick={() => handleConfirm()}
           >
             Видалити
           </Button>
@@ -68,9 +76,11 @@ DeleteButton.propTypes = {
   enabled: PropTypes.bool,
   deletePath: PropTypes.string.isRequired,
   entityName: PropTypes.string.isRequired,
+  onConfirm: PropTypes.func,
 };
 
 // default values
 DeleteButton.defaultProps = {
   enabled: true,
+  onConfirm: () => {},
 };
