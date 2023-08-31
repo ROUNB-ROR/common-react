@@ -76,6 +76,6 @@ FormItem.propTypes = {
   errors: PropTypes.shape(),
   items: PropTypes.arrayOf(PropTypes.shape({
     display: PropTypes.string,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.shape])
   }))
 };
