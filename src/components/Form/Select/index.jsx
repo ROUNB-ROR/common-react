@@ -5,7 +5,12 @@ import RBForm from 'react-bootstrap/Form';
 
 import { isValid, isInvalid, getFeedback } from '../validation';
 
-//
+/**
+ * Select for forms.
+ * @param {*} props
+ *  items - should contain pairs with display and value fields
+ * @returns
+ */
 export default function FormItem(props) {
   //
   const {
@@ -94,6 +99,6 @@ FormItem.propTypes = {
   errors: PropTypes.shape(),
   items: PropTypes.arrayOf(PropTypes.shape({
     display: PropTypes.string,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   })),
 };
