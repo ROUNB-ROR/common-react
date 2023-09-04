@@ -60,7 +60,7 @@ export default function FormItem(props) {
         isValid={isValid(errors, name)}
         isInvalid={isInvalid(errors, name)}
       />
-    )
+    );
   }
 
   // Controls with feedback
