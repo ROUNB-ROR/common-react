@@ -26,5 +26,13 @@ export default class AuthenticationStorage {
   static getTokenText() {
     return AuthenticationStorage.token != null ? AuthenticationStorage.token.plainTextToken : null;
   }
+
+  /**
+   * Retrieve tokens abilities
+   * @returns abilities, which are available to the token
+   */
+  static getAbilities() {
+    return AuthenticationStorage.token != null ? AuthenticationStorage.token.accessToken.abilities : null;
+  }
 }
 AuthenticationStorage.token = null;
