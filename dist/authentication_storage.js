@@ -31,8 +31,17 @@ export default class AuthenticationStorage {
    * Retrieve tokens abilities
    * @returns abilities, which are available to the token
    */
-  static getAbilities() {
-    return AuthenticationStorage.token != null ? AuthenticationStorage.token.accessToken.abilities : null;
+  static hasAbility(ability) {
+    let result = false;
+    //
+    if (AuthenticationStorage.token) {
+      //
+      const {
+        abilities
+      } = AuthenticationStorage.token.accessToken;
+      result = abilities.includes(ability);
+    }
+    return result;
   }
 }
 AuthenticationStorage.token = null;
