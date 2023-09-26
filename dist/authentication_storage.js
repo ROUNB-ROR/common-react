@@ -39,7 +39,7 @@ export default class AuthenticationStorage {
       const {
         abilities
       } = AuthenticationStorage.token.accessToken;
-      result = abilities.includes(ability);
+      result = abilities.includes(ability) || abilities.includes('*');
     }
     return result;
   }
