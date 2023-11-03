@@ -24,15 +24,6 @@ export default class DataService {
     return response.data;
   }
 
-  // GET method with blob as return type
-  static async getBlob(path) {
-    const config = makeConfig();
-    config.headers.responseType = 'blob';
-    config.timeout = 10000;
-    const response = await axios.get(path, config);
-    return response.data;
-  }
-
   // POST method
   static async post(path, data) {
     const response = await axios.post(path, data, makeConfig());
