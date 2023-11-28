@@ -12,7 +12,7 @@ export default function FormItem(props) {
   //
   const {
     name, as, value, type, autocomplete, horizontal, fullwidth, accept, multiple, size,
-    min, max, rows, displayName, hidden, placeholder, errors,
+    min, max, rows, displayName, hidden, placeholder, errors, onChange,
   } = props;
 
   //
@@ -37,6 +37,7 @@ export default function FormItem(props) {
         defaultValue={value}
         isValid={isValid(errors, name)}
         isInvalid={isInvalid(errors, name)}
+        onChange={(t) => onChange(t)}
       />
     );
   } else {
@@ -60,6 +61,7 @@ export default function FormItem(props) {
         defaultValue={value}
         isValid={isValid(errors, name)}
         isInvalid={isInvalid(errors, name)}
+        onChange={(t) => onChange(t)}
       />
     );
   }
@@ -107,6 +109,7 @@ FormItem.defaultProps = {
   placeholder: '',
   hidden: false,
   errors: null,
+  onChange: () => {},
 };
 
 FormItem.propTypes = {
@@ -127,4 +130,5 @@ FormItem.propTypes = {
   placeholder: PropTypes.string,
   hidden: PropTypes.bool,
   errors: PropTypes.shape(),
+  onChange: PropTypes.func,
 };

@@ -24,7 +24,8 @@ export default function FormItem(props) {
     displayName,
     hidden,
     placeholder,
-    errors
+    errors,
+    onChange
   } = props;
 
   //
@@ -47,7 +48,8 @@ export default function FormItem(props) {
       id: name,
       defaultValue: value,
       isValid: isValid(errors, name),
-      isInvalid: isInvalid(errors, name)
+      isInvalid: isInvalid(errors, name),
+      onChange: t => onChange(t)
     });
   } else {
     controlElement = /*#__PURE__*/React.createElement(RBForm.Control, {
@@ -68,7 +70,8 @@ export default function FormItem(props) {
       id: name,
       defaultValue: value,
       isValid: isValid(errors, name),
-      isInvalid: isInvalid(errors, name)
+      isInvalid: isInvalid(errors, name),
+      onChange: t => onChange(t)
     });
   }
 
@@ -99,7 +102,8 @@ FormItem.defaultProps = {
   max: null,
   placeholder: '',
   hidden: false,
-  errors: null
+  errors: null,
+  onChange: () => {}
 };
 FormItem.propTypes = {
   name: PropTypes.string.isRequired,
@@ -118,5 +122,6 @@ FormItem.propTypes = {
   max: PropTypes.number,
   placeholder: PropTypes.string,
   hidden: PropTypes.bool,
-  errors: PropTypes.shape()
+  errors: PropTypes.shape(),
+  onChange: PropTypes.func
 };

@@ -63,6 +63,18 @@ export default function FormItems() {
           errors={validationErrors}
         />
       </Col>
+      <Col xs={12}>
+        { /* Files */}
+        <Form.Item
+          name="files1"
+          displayName="Файли:"
+          type="file"
+          horizontal
+          multiple
+          errors={validationErrors}
+          onChange={(t) => console.log(t)}
+        />
+      </Col>
     </Row>
   );
 }
