@@ -11,7 +11,7 @@ import { isValid, isInvalid, getFeedback } from '../validation';
 export default function FormItem(props) {
   //
   const {
-    name, as, value, type, autocomplete, horizontal, fullwidth, accept, size,
+    name, as, value, type, autocomplete, horizontal, fullwidth, accept, multiple, size,
     min, max, rows, displayName, hidden, placeholder, errors,
   } = props;
 
@@ -48,6 +48,7 @@ export default function FormItem(props) {
         type={type}
         autoComplete={autocomplete ? 'on' : 'off'}
         accept={accept}
+        multiple={multiple}
         htmlsize={size}
         maxLength={size}
         min={min}
@@ -98,6 +99,7 @@ FormItem.defaultProps = {
   horizontal: false,
   fullwidth: false,
   accept: '',
+  multiple: false,
   size: null,
   rows: 1,
   min: null,
@@ -117,6 +119,7 @@ FormItem.propTypes = {
   horizontal: PropTypes.bool,
   fullwidth: PropTypes.bool,
   accept: PropTypes.string,
+  multiple: PropTypes.bool,
   size: PropTypes.number,
   rows: PropTypes.number,
   min: PropTypes.number,
