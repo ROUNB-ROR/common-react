@@ -15,7 +15,7 @@ export default function FormItem(props) {
   //
   const {
     name, value, horizontal, fullwidth, displayName, hidden, errors,
-    items,
+    items, onChange,
   } = props;
 
   //
@@ -50,6 +50,7 @@ export default function FormItem(props) {
       defaultValue={value}
       isValid={isValid(errors, name)}
       isInvalid={isInvalid(errors, name)}
+      onChange={(e) => onChange(e)}
     >
       {controlOptions}
     </RBForm.Select>
@@ -88,6 +89,7 @@ FormItem.defaultProps = {
   fullwidth: false,
   errors: null,
   items: [],
+  onChange: () => {},
 };
 
 FormItem.propTypes = {
@@ -105,4 +107,5 @@ FormItem.propTypes = {
       [PropTypes.string, PropTypes.number, PropTypes.shape],
     ),
   })),
+  onChange: PropTypes.func,
 };

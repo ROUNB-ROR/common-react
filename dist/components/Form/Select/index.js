@@ -19,7 +19,8 @@ export default function FormItem(props) {
     displayName,
     hidden,
     errors,
-    items
+    items,
+    onChange
   } = props;
 
   //
@@ -45,7 +46,8 @@ export default function FormItem(props) {
     id: name,
     defaultValue: value,
     isValid: isValid(errors, name),
-    isInvalid: isInvalid(errors, name)
+    isInvalid: isInvalid(errors, name),
+    onChange: e => onChange(e)
   }, controlOptions);
 
   // Controls with feedback
@@ -65,7 +67,8 @@ FormItem.defaultProps = {
   horizontal: false,
   fullwidth: false,
   errors: null,
-  items: []
+  items: [],
+  onChange: () => {}
 };
 FormItem.propTypes = {
   name: PropTypes.string.isRequired,
@@ -77,5 +80,6 @@ FormItem.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     display: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.shape])
-  }))
+  })),
+  onChange: PropTypes.func
 };
