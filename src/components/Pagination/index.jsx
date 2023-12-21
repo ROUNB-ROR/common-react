@@ -66,7 +66,7 @@ function Pagination(props) {
 
   return PAGE_ITEMS_TO_SHOW.length > 1
     ? (
-      <ul className="pagination">
+      <ul className="pagination justify-content-center">
         {
           PAGE_ITEMS_TO_SHOW
             // Creating page links for each selected page

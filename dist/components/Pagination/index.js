@@ -61,7 +61,7 @@ function Pagination(props) {
   activePageIndex = PAGE_ITEMS_TO_SHOW.findIndex(item => item.active);
   const location = useLocation();
   return PAGE_ITEMS_TO_SHOW.length > 1 ? /*#__PURE__*/React.createElement("ul", {
-    className: "pagination"
+    className: "pagination justify-content-center"
   }, PAGE_ITEMS_TO_SHOW
   // Creating page links for each selected page
   .map((page, index) => {
