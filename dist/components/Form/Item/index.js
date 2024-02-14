@@ -91,7 +91,7 @@ FormItem.defaultProps = {
   value: '',
   as: 'input',
   type: 'text',
-  autocomplete: false,
+  autocomplete: true,
   horizontal: false,
   fullwidth: false,
   accept: '',
