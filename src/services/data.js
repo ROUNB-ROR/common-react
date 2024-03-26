@@ -44,11 +44,11 @@ export default class DataService {
 
   // PATCH method
   static async patch(path, data) {
-    return axios.post(
-      `${path}?_method=PATCH`,
-      data,
-      makeConfig(),
-    );
+    let url = '';
+    if (path.includes('?')) url = `${path}&_method=PATCH`;
+    else url = `${path}?_method=PATCH`;
+
+    return axios.post(url, data, makeConfig());
   }
 
   // DELETE method
