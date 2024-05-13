@@ -14,6 +14,9 @@ export default function Header() {
         <Nav.Item>
           <Nav.Link as={Link} to="/form-selects">Form.Selects</Nav.Link>
         </Nav.Item>
+        <Nav.Item>
+          <Nav.Link as={Link} to="/jump-to-content-button">JumpToContentButton</Nav.Link>
+        </Nav.Item>
       </Nav>
     </Navbar>
   );

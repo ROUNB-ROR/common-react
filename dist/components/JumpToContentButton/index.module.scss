@@ -1,0 +1,16 @@
+a.button {
+    display: block;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    padding: 0px;
+    border: 0px solid white;
+}
+
+a.button:focus {
+    display: block;
+    width: unset;
+    height: unset;
+    overflow: unset;
+    padding: unset;
+}

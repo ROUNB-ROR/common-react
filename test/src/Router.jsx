@@ -10,6 +10,7 @@ import Root from './Root';
 //
 import FormItems from './routes/FormItems';
 import FormSelects from './routes/FormSelects';
+import JumpToContent from './routes/JumpToContentButton';
 
 // Routes
 const router = createBrowserRouter([{
@@ -17,6 +18,7 @@ const router = createBrowserRouter([{
   children: [
     { path: 'form-items', Component: FormItems },
     { path: 'form-selects', Component: FormSelects },
+    { path: 'jump-to-content-button', Component: JumpToContent },
 
     // Title
     { path: '', element: '' },
