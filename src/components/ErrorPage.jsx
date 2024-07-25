@@ -12,6 +12,7 @@ import Message from './Message/index';
 // Default error page
 export default function ErrorPage() {
   const error = useRouteError();
+  console.log(error);
   //
   let errorText = [error.statusText, error.message].join('\n');
   const { response } = error;
