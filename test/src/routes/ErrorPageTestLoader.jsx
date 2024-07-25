@@ -1,7 +1,6 @@
-import axios from 'axios';
-
 export default async function ErrorPageTestLoader() {
-  await axios.get('TotallyNotExistingUrl.com');
+  const e = new Error('123');
+  e.statusText = 'status Text';
 
-  return null;
+  throw e;
 }
