@@ -13,7 +13,7 @@ import Message from './Message/index';
 export default function ErrorPage() {
   const error = useRouteError();
   //
-  let errorText = error.statusText || error.message;
+  let errorText = [error.statusText, error.message].join('\n');
   const { response } = error;
   if (response) {
     const { status } = response;
