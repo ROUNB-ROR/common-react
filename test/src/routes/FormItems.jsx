@@ -44,18 +44,16 @@ export default function FormItems() {
           fullwidth
           errors={validationErrors}
         />
-        <Form.Item
+        <Form.Check
           name="female"
           displayName="Жінка?"
-          type="checkbox"
           horizontal
           errors={validationErrors}
         />
-        <Form.Item
+        <Form.Check
           name="checkedCheckBox"
           displayName="Checked"
-          type="checkbox"
-          value
+          checked
           horizontal
           errors={validationErrors}
         />
