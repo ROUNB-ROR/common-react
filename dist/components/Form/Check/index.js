@@ -5,25 +5,16 @@ import './styles.scss';
 import { isValid, isInvalid, getFeedback } from '../validation';
 
 //
-export default function FormItem(props) {
+export default function FormCheck(props) {
   //
   const {
     name,
     as,
-    value,
-    type,
-    autocomplete,
+    checked,
     horizontal,
     fullwidth,
-    accept,
-    multiple,
-    size,
-    min,
-    max,
-    rows,
     displayName,
     hidden,
-    placeholder,
     errors,
     onChange
   } = props;
@@ -37,23 +28,14 @@ export default function FormItem(props) {
   if (fullwidth) controlClasses.push('flex-grow-1');
   const controlClassName = controlClasses.join(' ');
   // Control element
-  const controlElement = /*#__PURE__*/React.createElement(RBForm.Control, {
+  const controlElement = /*#__PURE__*/React.createElement(RBForm.Check, {
     name: name,
     className: controlClassName,
     as: as,
-    type: type,
-    autoComplete: autocomplete ? 'on' : 'off',
-    accept: accept,
-    multiple: multiple,
-    htmlsize: size,
-    maxLength: size,
-    min: min,
-    max: max,
-    rows: rows,
-    placeholder: placeholder,
+    type: "checkbox",
     hidden: hidden,
+    defaultChecked: checked,
     id: name,
-    defaultValue: value,
     isValid: isValid(errors, name),
     isInvalid: isInvalid(errors, name),
     onChange: t => onChange(t)
@@ -71,40 +53,22 @@ export default function FormItem(props) {
   }, controls), feedback) : /*#__PURE__*/React.createElement(RBForm.Group, null, controls, feedback);
   return result;
 }
-FormItem.defaultProps = {
-  value: '',
+FormCheck.defaultProps = {
+  checked: false,
   as: 'input',
-  type: 'text',
-  autocomplete: true,
   horizontal: false,
   fullwidth: false,
-  accept: '',
-  multiple: false,
-  size: null,
-  rows: 1,
-  min: null,
-  max: null,
-  placeholder: '',
   hidden: false,
   errors: null,
   onChange: () => {}
 };
-FormItem.propTypes = {
+FormCheck.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.shape]),
+  checked: PropTypes.bool,
   as: PropTypes.string,
   displayName: PropTypes.string.isRequired,
-  type: PropTypes.string,
-  autocomplete: PropTypes.bool,
   horizontal: PropTypes.bool,
   fullwidth: PropTypes.bool,
-  accept: PropTypes.string,
-  multiple: PropTypes.bool,
-  size: PropTypes.number,
-  rows: PropTypes.number,
-  min: PropTypes.number,
-  max: PropTypes.number,
-  placeholder: PropTypes.string,
   hidden: PropTypes.bool,
   errors: PropTypes.shape(),
   onChange: PropTypes.func
