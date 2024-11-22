@@ -107,7 +107,7 @@ FormItem.defaultProps = {
 };
 FormItem.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.shape]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool, PropTypes.shape]),
   as: PropTypes.string,
   displayName: PropTypes.string.isRequired,
   type: PropTypes.string,

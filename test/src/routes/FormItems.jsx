@@ -55,7 +55,7 @@ export default function FormItems() {
           name="checkedCheckBox"
           displayName="Checked"
           type="checkbox"
-          value="1"
+          value
           horizontal
           errors={validationErrors}
         />
