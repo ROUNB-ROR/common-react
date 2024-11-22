@@ -45,8 +45,8 @@ export default function FormItem(props) {
       as: as,
       type: type,
       hidden: hidden,
+      checked: value,
       id: name,
-      defaultValue: value,
       isValid: isValid(errors, name),
       isInvalid: isInvalid(errors, name),
       onChange: t => onChange(t)
