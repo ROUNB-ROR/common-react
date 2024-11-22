@@ -51,6 +51,14 @@ export default function FormItems() {
           horizontal
           errors={validationErrors}
         />
+        <Form.Item
+          name="checkedCheckBox"
+          displayName="Checked"
+          type="checkbox"
+          value="1"
+          horizontal
+          errors={validationErrors}
+        />
       </Col>
       <Col xs={12}>
         { /* Date */}
