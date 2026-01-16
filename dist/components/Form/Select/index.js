@@ -36,7 +36,8 @@ export default function FormItem(props) {
   if (items) {
     controlOptions = /*#__PURE__*/React.createElement(React.Fragment, null, items.map(item => /*#__PURE__*/React.createElement("option", {
       value: item.value,
-      key: `${name}${item.value}`
+      key: `${name}${item.value}`,
+      disabled: item.disabled || false
     }, item.display)));
   }
   // Control element
