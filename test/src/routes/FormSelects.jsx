@@ -10,6 +10,7 @@ export default function FormSelects() {
 
   const items = [
     { display: '123', value: '123' },
+    { display: '────', disabled: true },
     { display: '444', value: '444' },
     { display: '555', value: '555' },
   ];

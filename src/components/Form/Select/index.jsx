@@ -33,7 +33,7 @@ export default function FormItem(props) {
       <>
         {
           items.map((item) => (
-            <option value={item.value} key={`${name}${item.value}`}>
+            <option value={item.value} key={`${name}${item.value}`} disabled={item.disabled || false}>
               {item.display}
             </option>
           ))
