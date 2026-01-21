@@ -16,7 +16,7 @@ export default function FormItem(props) {
   } = props;
 
   //
-  const label = hidden ? '' : <RBForm.Label>{displayName}</RBForm.Label>;
+  const label = (hidden || !displayName) ? '' : <RBForm.Label>{displayName}</RBForm.Label>;
 
   // Classes for control
   const controlClasses = [];
@@ -78,6 +78,7 @@ export default function FormItem(props) {
 FormItem.defaultProps = {
   value: '',
   as: 'input',
+  displayName: '',
   type: 'text',
   autocomplete: true,
   horizontal: false,
@@ -98,7 +99,7 @@ FormItem.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.shape]),
   as: PropTypes.string,
-  displayName: PropTypes.string.isRequired,
+  displayName: PropTypes.string,
   type: PropTypes.string,
   autocomplete: PropTypes.bool,
   horizontal: PropTypes.bool,

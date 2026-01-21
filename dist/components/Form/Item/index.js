@@ -29,7 +29,7 @@ export default function FormItem(props) {
   } = props;
 
   //
-  const label = hidden ? '' : /*#__PURE__*/React.createElement(RBForm.Label, null, displayName);
+  const label = hidden || !displayName ? '' : /*#__PURE__*/React.createElement(RBForm.Label, null, displayName);
 
   // Classes for control
   const controlClasses = [];
@@ -74,6 +74,7 @@ export default function FormItem(props) {
 FormItem.defaultProps = {
   value: '',
   as: 'input',
+  displayName: '',
   type: 'text',
   autocomplete: true,
   horizontal: false,
@@ -93,7 +94,7 @@ FormItem.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.shape]),
   as: PropTypes.string,
-  displayName: PropTypes.string.isRequired,
+  displayName: PropTypes.string,
   type: PropTypes.string,
   autocomplete: PropTypes.bool,
   horizontal: PropTypes.bool,
