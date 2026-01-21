@@ -2,6 +2,7 @@ import { React } from 'react';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Table from 'react-bootstrap/Table';
 
 import { Form } from '../../../src/components/index';
 
@@ -80,6 +81,27 @@ export default function FormItems() {
           errors={validationErrors}
           onChange={(t) => console.log(t)}
         />
+      </Col>
+      <Col xs={12}>
+        <h1>Порожні label'и</h1>
+        <Table bordered>
+          <thead>
+            <tr>
+              <th>Книги</th>
+              <th>Електронні видання</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <Form.Item name="table_books" value="0" type="number" errors={validationErrors} />
+              </td>
+              <td>
+                <Form.Item name="table_ebooks" value="0" type="number" errors={validationErrors} />
+              </td>
+            </tr>
+          </tbody>
+        </Table>
       </Col>
     </Row>
   );
