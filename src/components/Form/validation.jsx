@@ -22,7 +22,7 @@ const isInvalid = (errors, fieldName) => {
 const getFeedback = (errors, fieldName) => {
   //
   let result = '';
-  if (errors && errors[fieldName] !== undefined) {
+  if (errors && errors[fieldName] !== undefined && errors[fieldName].length > 0) {
     // Merging all related error messages
     const text = errors[fieldName].join('. ');
     // Resulting feedback

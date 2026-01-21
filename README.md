@@ -15,7 +15,12 @@ Open local link and add
 # Publishing
 
 Increase version in package.json.
+Build the package
 
-Run npm script to build, commit changes and publish.
+    npm run build
 
-    npm run publ
+Add to the staged all required files and commit all the changes.
+Push changes to the repository.
+Publish the changes
+
+    npm publish
