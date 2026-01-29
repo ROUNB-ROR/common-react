@@ -47,6 +47,14 @@ export default function FormSelects() {
           items={items}
         />
       </Col>
+      <Col xs={8} className="d-flex">
+        <h2>Без displayName</h2>
+        <Form.Select
+          name="number"
+          errors={validationErrors}
+          items={items}
+        />
+      </Col>
     </Row>
   );
 }
