@@ -1,7 +1,7 @@
-@import "./Fireworker/styles";
-@import "./Form/Item/styles";
-@import "./Message/styles";
-@import "./Notifier/styles";
-@import "./Pagination/styles";
+@use "./Fireworker/styles" as *;
+@use "./Form/Item/styles" as *;
+@use "./Message/styles" as *;
+@use "./Notifier/styles" as *;
+@use "./Pagination/styles" as *;
 
-@import "./spinners/styles";
+@use "./spinners/styles" as *;

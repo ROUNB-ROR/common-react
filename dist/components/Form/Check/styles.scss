@@ -1,5 +1,5 @@
 // Bootstrap
-@import "bootstrap/scss/bootstrap";
+@use "bootstrap/scss/bootstrap" as *;
 
 form, .invalid-feedback {
   font-size: 23px!important;
