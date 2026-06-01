@@ -19,9 +19,14 @@ const isInvalid = (errors, fieldName) => {
 const getFeedback = (errors, fieldName) => {
   //
   let result = '';
-  if (errors && errors[fieldName] !== undefined && errors[fieldName].length > 0) {
-    // Merging all related error messages
-    const text = errors[fieldName].join('. ');
+  if (errors && errors[fieldName] !== undefined) {
+    let text = '';
+    if (Array.isArray(errors[fieldName])) {
+      // Merging all related error messages
+      text = errors[fieldName].join('. ');
+    } else {
+      text = errors[fieldName];
+    }
     // Resulting feedback
     result = /*#__PURE__*/React.createElement(Feedback, {
       type: "invalid"
