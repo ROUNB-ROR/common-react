@@ -84,7 +84,6 @@ export default function Fireworker() {
     const xPoint = Math.random() * (w - 200) + 100;
     const yPoint = Math.random() * (h - 200) + 100;
     const nFire = Math.random() * 50 + 100;
-    // eslint-disable-next-line no-bitwise
     const c = `rgb(${(~~(Math.random() * 200 + 55))},${(~~(Math.random() * 200 + 55))},${(~~(Math.random() * 200 + 55))})`;
     for (let i = 0; i < nFire; i += 1) {
       const particle = new Particle(xPoint, yPoint);

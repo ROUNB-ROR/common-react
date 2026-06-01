@@ -1,14 +1,11 @@
-// Bootstrap
-@use "bootstrap/scss/bootstrap" as *;
-
 form, .invalid-feedback {
   font-size: 23px!important;
 }
 
 //
 .horizontal > div {
-  @extend .d-flex;
-  @extend .align-items-center;
+  display: flex;
+  align-items: center;
 }
 
 .horizontal .form-label {
