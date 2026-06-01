@@ -40,6 +40,9 @@ export default function FormItem(props) {
       disabled: item.disabled || false
     }, item.display)));
   }
+
+  //
+  const onChangeHandler = onChange || (() => {});
   // Control element
   const controlElement = /*#__PURE__*/React.createElement(RBForm.Select, {
     name: name,
@@ -48,7 +51,7 @@ export default function FormItem(props) {
     defaultValue: value,
     isValid: isValid(errors, name),
     isInvalid: isInvalid(errors, name),
-    onChange: e => onChange(e)
+    onChange: onChangeHandler
   }, controlOptions);
 
   // Controls with feedback

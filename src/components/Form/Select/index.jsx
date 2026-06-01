@@ -41,6 +41,9 @@ export default function FormItem(props) {
       </>
     );
   }
+
+  //
+  const onChangeHandler = onChange || (() => {});
   // Control element
   const controlElement = (
     <RBForm.Select
@@ -50,7 +53,7 @@ export default function FormItem(props) {
       defaultValue={value}
       isValid={isValid(errors, name)}
       isInvalid={isInvalid(errors, name)}
-      onChange={(e) => onChange(e)}
+      onChange={onChangeHandler}
     >
       {controlOptions}
     </RBForm.Select>

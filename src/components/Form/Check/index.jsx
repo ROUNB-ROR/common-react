@@ -22,6 +22,9 @@ export default function FormCheck(props) {
   if (horizontal) controlClasses.push('m-2');
   if (fullwidth) controlClasses.push('flex-grow-1');
   const controlClassName = controlClasses.join(' ');
+
+  //
+  const onChangeHandler = onChange || (() => {});
   // Control element
   const controlElement = (
     <RBForm.Check
@@ -34,7 +37,7 @@ export default function FormCheck(props) {
       id={name}
       isValid={isValid(errors, name)}
       isInvalid={isInvalid(errors, name)}
-      onChange={(t) => onChange(t)}
+      onChange={onChangeHandler}
     />
   );
 

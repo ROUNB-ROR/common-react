@@ -36,6 +36,9 @@ export default function FormItem(props) {
   if (horizontal) controlClasses.push('m-2');
   if (fullwidth) controlClasses.push('flex-grow-1');
   const controlClassName = controlClasses.join(' ');
+
+  //
+  const onChangeHandler = onChange || (() => {});
   // Control element
   const controlElement = /*#__PURE__*/React.createElement(RBForm.Control, {
     name: name,
@@ -56,7 +59,7 @@ export default function FormItem(props) {
     defaultValue: value,
     isValid: isValid(errors, name),
     isInvalid: isInvalid(errors, name),
-    onChange: t => onChange(t)
+    onChange: onChangeHandler
   });
 
   // Controls with feedback
