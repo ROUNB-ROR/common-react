@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';

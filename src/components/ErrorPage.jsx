@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   useNavigate, useRouteError, Link,
-} from 'react-router-dom';
+} from 'react-router';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';

@@ -1,4 +1,4 @@
-import { redirect } from 'react-router-dom';
+import { redirect } from 'react-router';
 import AuthenticationStorage from '../authentication_storage';
 import { getPathFromRequest } from './path';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router';
 
 // Stateless component represents page link button on the pagination
 function PageLink(props) {

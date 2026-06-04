@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter, RouterProvider, redirect,
-} from 'react-router-dom';
+} from 'react-router';
 
 //
 import Root from './Root';
@@ -27,9 +27,9 @@ const router = createBrowserRouter([{
     { path: 'jump-to-content-button', Component: JumpToContent },
 
     // Title
-    { path: '', element: '' },
+    { index: true, element: ''},
     // Other paths are redirected to title
-    { path: '*', loader: async () => redirect('') },
+    { path: '*', loader: async () => redirect('/') },
   ],
 }]);
 
