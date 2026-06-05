@@ -7,10 +7,10 @@ import Modal from 'react-bootstrap/Modal';
 // Delete button with confirmation modal
 export default function DeleteButton(props) {
   const {
-    enabled,
+    enabled = true,
     deletePath,
     entityName,
-    onConfirm
+    onConfirm = () => {}
   } = props;
   // Id to delete
   const [show, setShow] = useState(false);
@@ -57,10 +57,4 @@ DeleteButton.propTypes = {
   deletePath: PropTypes.string.isRequired,
   entityName: PropTypes.string.isRequired,
   onConfirm: PropTypes.func
-};
-
-// default values
-DeleteButton.defaultProps = {
-  enabled: true,
-  onConfirm: () => {}
 };
