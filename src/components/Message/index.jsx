@@ -7,7 +7,7 @@ import './styles.scss';
 
 export default function Message(props) {
   //
-  const { header, text } = props;
+  const { header, text = '' } = props;
 
   const headerElement = (
     <p className="message-in-page text-center">
@@ -53,10 +53,6 @@ export default function Message(props) {
     </Col>
   );
 }
-
-Message.defaultProps = {
-  text: '',
-};
 
 Message.propTypes = {
   header: PropTypes.string.isRequired,

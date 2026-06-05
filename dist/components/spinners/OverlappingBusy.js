@@ -8,7 +8,7 @@ import Spinner from 'react-bootstrap/Spinner';
 // should be responsive or not
 export default function OverlappingBusy(props) {
   const {
-    responsive
+    responsive = true
   } = props;
 
   // Spinner part - depends whether spinner is responsive or not
@@ -38,9 +38,6 @@ export default function OverlappingBusy(props) {
     className: "busy-container-overlapping d-flex justify-content-center align-items-center"
   }, spinnerPart);
 }
-OverlappingBusy.defaultProps = {
-  responsive: true
-};
 OverlappingBusy.propTypes = {
   responsive: PropTypes.bool
 };

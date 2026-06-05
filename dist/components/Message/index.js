@@ -6,7 +6,7 @@ export default function Message(props) {
   //
   const {
     header,
-    text
+    text = ''
   } = props;
   const headerElement = /*#__PURE__*/React.createElement("p", {
     className: "message-in-page text-center"
@@ -36,9 +36,6 @@ export default function Message(props) {
     className: "pb-2"
   }, headerElement, textElement);
 }
-Message.defaultProps = {
-  text: ''
-};
 Message.propTypes = {
   header: PropTypes.string.isRequired,
   text: PropTypes.string

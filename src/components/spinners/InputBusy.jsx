@@ -6,7 +6,7 @@ import Spinner from 'react-bootstrap/Spinner';
 // Spinner for inputs. Takes some space on the right side of input
 // Requires position-relative d-flex align-items-center classes for parent container
 export default function InputBusy(props) {
-  const { visible } = props;
+  const { visible = true } = props;
   // Resulting component
   return (
     <div
@@ -18,10 +18,6 @@ export default function InputBusy(props) {
     </div>
   );
 }
-
-InputBusy.defaultProps = {
-  visible: true,
-};
 
 InputBusy.propTypes = {
   visible: PropTypes.bool,

@@ -9,14 +9,14 @@ export default function FormCheck(props) {
   //
   const {
     name,
-    as,
-    checked,
-    horizontal,
-    fullwidth,
+    as = 'input',
+    checked = false,
+    horizontal = false,
+    fullwidth = false,
     displayName,
-    hidden,
-    errors,
-    onChange
+    hidden = false,
+    errors = null,
+    onChange = () => {}
   } = props;
 
   //
@@ -28,8 +28,6 @@ export default function FormCheck(props) {
   if (fullwidth) controlClasses.push('flex-grow-1');
   const controlClassName = controlClasses.join(' ');
 
-  //
-  const onChangeHandler = onChange || (() => {});
   // Control element
   const controlElement = /*#__PURE__*/React.createElement(RBForm.Check, {
     name: name,
@@ -41,7 +39,7 @@ export default function FormCheck(props) {
     id: name,
     isValid: isValid(errors, name),
     isInvalid: isInvalid(errors, name),
-    onChange: onChangeHandler
+    onChange: onChange
   });
 
   // Controls with feedback
@@ -56,15 +54,6 @@ export default function FormCheck(props) {
   }, controls), feedback) : /*#__PURE__*/React.createElement(RBForm.Group, null, controls, feedback);
   return result;
 }
-FormCheck.defaultProps = {
-  checked: false,
-  as: 'input',
-  horizontal: false,
-  fullwidth: false,
-  hidden: false,
-  errors: null,
-  onChange: () => {}
-};
 FormCheck.propTypes = {
   name: PropTypes.string.isRequired,
   checked: PropTypes.bool,

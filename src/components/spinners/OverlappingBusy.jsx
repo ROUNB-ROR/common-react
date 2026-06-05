@@ -8,7 +8,7 @@ import Spinner from 'react-bootstrap/Spinner';
 // Responsiveness is not ideal so flag is used to specify whether spinner
 // should be responsive or not
 export default function OverlappingBusy(props) {
-  const { responsive } = props;
+  const { responsive = true } = props;
 
   // Spinner part - depends whether spinner is responsive or not
   let spinnerPart = '';
@@ -37,10 +37,6 @@ export default function OverlappingBusy(props) {
     </div>
   );
 }
-
-OverlappingBusy.defaultProps = {
-  responsive: true,
-};
 
 OverlappingBusy.propTypes = {
   responsive: PropTypes.bool,

@@ -13,14 +13,14 @@ export default function FormItem(props) {
   //
   const {
     name,
-    value,
-    horizontal,
-    fullwidth,
-    displayName,
+    value = '',
+    horizontal = false,
+    fullwidth = false,
+    displayName = '',
     hidden,
-    errors,
-    items,
-    onChange
+    errors = null,
+    items = [],
+    onChange = () => {}
   } = props;
 
   //
@@ -41,8 +41,6 @@ export default function FormItem(props) {
     }, item.display)));
   }
 
-  //
-  const onChangeHandler = onChange || (() => {});
   // Control element
   const controlElement = /*#__PURE__*/React.createElement(RBForm.Select, {
     name: name,
@@ -51,7 +49,7 @@ export default function FormItem(props) {
     defaultValue: value,
     isValid: isValid(errors, name),
     isInvalid: isInvalid(errors, name),
-    onChange: onChangeHandler
+    onChange: onChange
   }, controlOptions);
 
   // Controls with feedback
@@ -66,15 +64,6 @@ export default function FormItem(props) {
   }, controls), feedback) : /*#__PURE__*/React.createElement(RBForm.Group, null, controls, feedback);
   return result;
 }
-FormItem.defaultProps = {
-  value: '',
-  displayName: '',
-  horizontal: false,
-  fullwidth: false,
-  errors: null,
-  items: [],
-  onChange: () => {}
-};
 FormItem.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.shape]),

@@ -14,8 +14,8 @@ import { isValid, isInvalid, getFeedback } from '../validation';
 export default function FormItem(props) {
   //
   const {
-    name, value, horizontal, fullwidth, displayName, hidden, errors,
-    items, onChange,
+    name, value = '', horizontal = false, fullwidth = false, displayName = '', hidden, errors = null,
+    items = [], onChange = () => {},
   } = props;
 
   //
@@ -42,8 +42,6 @@ export default function FormItem(props) {
     );
   }
 
-  //
-  const onChangeHandler = onChange || (() => {});
   // Control element
   const controlElement = (
     <RBForm.Select
@@ -53,7 +51,7 @@ export default function FormItem(props) {
       defaultValue={value}
       isValid={isValid(errors, name)}
       isInvalid={isInvalid(errors, name)}
-      onChange={onChangeHandler}
+      onChange={onChange}
     >
       {controlOptions}
     </RBForm.Select>
@@ -85,16 +83,6 @@ export default function FormItem(props) {
 
   return result;
 }
-
-FormItem.defaultProps = {
-  value: '',
-  displayName: '',
-  horizontal: false,
-  fullwidth: false,
-  errors: null,
-  items: [],
-  onChange: () => {},
-};
 
 FormItem.propTypes = {
   name: PropTypes.string.isRequired,

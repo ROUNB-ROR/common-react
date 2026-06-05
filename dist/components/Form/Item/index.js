@@ -9,23 +9,23 @@ export default function FormItem(props) {
   //
   const {
     name,
-    as,
-    value,
-    type,
-    autocomplete,
-    horizontal,
-    fullwidth,
-    accept,
-    multiple,
-    size,
-    min,
-    max,
-    rows,
-    displayName,
-    hidden,
-    placeholder,
-    errors,
-    onChange
+    as = 'input',
+    value = '',
+    type = 'text',
+    autocomplete = true,
+    horizontal = false,
+    fullwidth = false,
+    accept = '',
+    multiple = false,
+    size = null,
+    min = null,
+    max = null,
+    rows = 1,
+    displayName = '',
+    hidden = false,
+    placeholder = '',
+    errors = null,
+    onChange = () => {}
   } = props;
 
   //
@@ -37,8 +37,6 @@ export default function FormItem(props) {
   if (fullwidth) controlClasses.push('flex-grow-1');
   const controlClassName = controlClasses.join(' ');
 
-  //
-  const onChangeHandler = onChange || (() => {});
   // Control element
   const controlElement = /*#__PURE__*/React.createElement(RBForm.Control, {
     name: name,
@@ -59,7 +57,7 @@ export default function FormItem(props) {
     defaultValue: value,
     isValid: isValid(errors, name),
     isInvalid: isInvalid(errors, name),
-    onChange: onChangeHandler
+    onChange: onChange
   });
 
   // Controls with feedback
@@ -74,25 +72,6 @@ export default function FormItem(props) {
   }, controls), feedback) : /*#__PURE__*/React.createElement(RBForm.Group, null, controls, feedback);
   return result;
 }
-FormItem.defaultProps = {
-  value: '',
-  as: 'input',
-  displayName: '',
-  type: 'text',
-  autocomplete: true,
-  horizontal: false,
-  fullwidth: false,
-  accept: '',
-  multiple: false,
-  size: null,
-  rows: 1,
-  min: null,
-  max: null,
-  placeholder: '',
-  hidden: false,
-  errors: null,
-  onChange: () => {}
-};
 FormItem.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.shape]),
