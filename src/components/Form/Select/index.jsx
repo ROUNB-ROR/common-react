@@ -19,7 +19,7 @@ export default function FormItem(props) {
   } = props;
 
   //
-  const label = (hidden || displayName === '') ? '' : <RBForm.Label>{displayName}</RBForm.Label>;
+  const label = (hidden || displayName === '') ? '' : <RBForm.Label for={name}>{displayName}</RBForm.Label>;
 
   // Classes for control
   const controlClasses = [];

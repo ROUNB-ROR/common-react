@@ -20,7 +20,7 @@ export default function FormSelects() {
       <Col xs={12}>
         { /* Reader's number */}
         <Form.Select
-          name="number"
+          name="number1"
           displayName="По-замовчуванню:"
           errors={validationErrors}
           items={items}
@@ -29,7 +29,7 @@ export default function FormSelects() {
       <Col xs={12}>
         { /* Reader's number */}
         <Form.Select
-          name="number"
+          name="number2"
           displayName="Горизонтальний:"
           horizontal
           errors={validationErrors}
@@ -39,7 +39,7 @@ export default function FormSelects() {
       <Col xs={8} className="d-flex">
         { /* Reader's number */}
         <Form.Select
-          name="number"
+          name="number3"
           displayName="Горизонтальний, на повну ширину:"
           horizontal
           fullwidth
@@ -50,7 +50,7 @@ export default function FormSelects() {
       <Col xs={8} className="d-flex">
         <h2>Без displayName</h2>
         <Form.Select
-          name="number"
+          name="number4"
           errors={validationErrors}
           items={items}
         />

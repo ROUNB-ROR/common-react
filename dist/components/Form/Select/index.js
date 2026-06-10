@@ -24,7 +24,9 @@ export default function FormItem(props) {
   } = props;
 
   //
-  const label = hidden || displayName === '' ? '' : /*#__PURE__*/React.createElement(RBForm.Label, null, displayName);
+  const label = hidden || displayName === '' ? '' : /*#__PURE__*/React.createElement(RBForm.Label, {
+    for: name
+  }, displayName);
 
   // Classes for control
   const controlClasses = [];
