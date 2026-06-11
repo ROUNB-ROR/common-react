@@ -30,7 +30,7 @@ export default function FormItem(props) {
 
   //
   const label = hidden || !displayName ? '' : /*#__PURE__*/React.createElement(RBForm.Label, {
-    for: name
+    htmlFor: name
   }, displayName);
 
   // Classes for control

@@ -21,7 +21,7 @@ export default function FormCheck(props) {
 
   //
   const label = hidden ? '' : /*#__PURE__*/React.createElement(RBForm.Label, {
-    for: name
+    htmlFor: name
   }, displayName);
 
   // Classes for control

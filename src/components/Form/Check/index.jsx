@@ -15,7 +15,7 @@ export default function FormCheck(props) {
   } = props;
 
   //
-  const label = hidden ? '' : <RBForm.Label for={name}>{displayName}</RBForm.Label>;
+  const label = hidden ? '' : <RBForm.Label htmlFor={name}>{displayName}</RBForm.Label>;
 
   // Classes for control
   const controlClasses = [];
