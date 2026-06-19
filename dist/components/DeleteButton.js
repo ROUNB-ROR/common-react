@@ -10,7 +10,8 @@ export default function DeleteButton(props) {
     enabled = true,
     deletePath,
     entityName,
-    onConfirm = () => {}
+    onConfirm = () => {},
+    children = /*#__PURE__*/React.createElement(React.Fragment, null, "\u0412\u0438\u0434\u0430\u043B\u0438\u0442\u0438")
   } = props;
   // Id to delete
   const [show, setShow] = useState(false);
@@ -48,7 +49,7 @@ export default function DeleteButton(props) {
     variant: "danger",
     disabled: !enabled,
     onClick: () => handleShowModal()
-  }, "\u0412\u0438\u0434\u0430\u043B\u0438\u0442\u0438"), modal);
+  }, children), modal);
 }
 
 // prop types
@@ -56,5 +57,6 @@ DeleteButton.propTypes = {
   enabled: PropTypes.bool,
   deletePath: PropTypes.string.isRequired,
   entityName: PropTypes.string.isRequired,
-  onConfirm: PropTypes.func
+  onConfirm: PropTypes.func,
+  children: PropTypes.node
 };

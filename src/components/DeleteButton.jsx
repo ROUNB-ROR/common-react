@@ -9,6 +9,7 @@ import Modal from 'react-bootstrap/Modal';
 export default function DeleteButton(props) {
   const {
     enabled = true, deletePath, entityName, onConfirm = () => {},
+    children = (<>Видалити</>),
   } = props;
   // Id to delete
   const [show, setShow] = useState(false);
@@ -64,7 +65,7 @@ export default function DeleteButton(props) {
         disabled={!enabled}
         onClick={() => handleShowModal()}
       >
-        Видалити
+        {children}
       </Button>
       {modal}
     </>
@@ -77,4 +78,5 @@ DeleteButton.propTypes = {
   deletePath: PropTypes.string.isRequired,
   entityName: PropTypes.string.isRequired,
   onConfirm: PropTypes.func,
+  children: PropTypes.node,
 };

@@ -11,6 +11,7 @@ import Root from './Root';
 import { ErrorPage } from '../../src/components';
 
 //
+import DeleteButton from './routes/DeleteButton';
 import ErrorPageTestLoader from './routes/ErrorPageTestLoader';
 import FormItems from './routes/FormItems';
 import FormSelects from './routes/FormSelects';
@@ -21,6 +22,7 @@ const router = createBrowserRouter([{
   Component: Root,
   ErrorBoundary: ErrorPage,
   children: [
+    { path: 'delete-button', Component: DeleteButton },
     { path: 'error-page', loader: ErrorPageTestLoader, element: '' },
     { path: 'form-items', Component: FormItems },
     { path: 'form-selects', Component: FormSelects },

@@ -20,6 +20,9 @@ export default function Header() {
         <Nav.Item>
           <Nav.Link as={Link} to="/error-page">ErrorPage</Nav.Link>
         </Nav.Item>
+        <Nav.Item>
+          <Nav.Link as={Link} to="/delete-button">DeleteButton</Nav.Link>
+        </Nav.Item>
       </Nav>
     </Navbar>
   );
