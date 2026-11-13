@@ -21,7 +21,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "rd /S /Q dist && mkdir dist && babel src --out-dir dist --copy-files"
+    "build": "rm -rf dist && babel src --out-dir dist --copy-files"
   },
   "repository": {
     "type": "git",
