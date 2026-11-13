@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useLocation, Link } from 'react-router';
 
 // Stateless component represents page link button on the pagination
+import { jsx as _jsx } from "react/jsx-runtime";
 function PageLink(props) {
   //
   const {
@@ -22,7 +23,7 @@ function PageLink(props) {
   const REGEX = /([?;&])page=[^&;]*[;&]?/;
   const QUERY = searchQuery.replace(REGEX, '$1').replace(/&$/, '');
   const SEARCH_QUERY = `${QUERY.length > 2 ? `${QUERY}&` : '?'}page=${page}`;
-  return /*#__PURE__*/React.createElement(Link, {
+  return /*#__PURE__*/_jsx(Link, {
     className: "page-link",
     to: `${path}${SEARCH_QUERY}`,
     dangerouslySetInnerHTML: getMarkup()
@@ -60,35 +61,36 @@ function Pagination(props) {
   // Finding the position for active page in the array of the selected pages
   activePageIndex = PAGE_ITEMS_TO_SHOW.findIndex(item => item.active);
   const location = useLocation();
-  return PAGE_ITEMS_TO_SHOW.length > 1 ? /*#__PURE__*/React.createElement("ul", {
-    className: "pagination justify-content-center"
-  }, PAGE_ITEMS_TO_SHOW
-  // Creating page links for each selected page
-  .map((page, index) => {
-    const PAGE_NUMBER = getPageNumber(page.url);
+  return PAGE_ITEMS_TO_SHOW.length > 1 ? /*#__PURE__*/_jsx("ul", {
+    className: "pagination justify-content-center",
+    children: PAGE_ITEMS_TO_SHOW
+    // Creating page links for each selected page
+    .map((page, index) => {
+      const PAGE_NUMBER = getPageNumber(page.url);
 
-    // Replacing label for the third item before and after the active
-    // with ...
-    // Except the situation when the item is second or before the last
-    // page to exclude the situations like
-    //  1 ... 3 4
-    // and
-    //  1 2 ... 4
-    const PAGE_LABEL = Math.abs(index - activePageIndex) === 3 && index > 1 && index < PAGE_ITEMS_TO_SHOW.length - 2 && PAGE_NUMBER > 2 && PAGE_NUMBER < NUMBER_OF_PAGES - 1 ? '...' : page.label;
+      // Replacing label for the third item before and after the active
+      // with ...
+      // Except the situation when the item is second or before the last
+      // page to exclude the situations like
+      //  1 ... 3 4
+      // and
+      //  1 2 ... 4
+      const PAGE_LABEL = Math.abs(index - activePageIndex) === 3 && index > 1 && index < PAGE_ITEMS_TO_SHOW.length - 2 && PAGE_NUMBER > 2 && PAGE_NUMBER < NUMBER_OF_PAGES - 1 ? '...' : page.label;
 
-    // No other unique values are available so the key will include
-    // index
-    const key = `page${index}`;
-    return /*#__PURE__*/React.createElement("li", {
-      className: `page-item ${page.active ? 'active' : ''}`,
-      key: key
-    }, /*#__PURE__*/React.createElement(PageLink, {
-      path: location.pathname,
-      page: PAGE_NUMBER,
-      label: PAGE_LABEL,
-      searchQuery: location.search
-    }));
-  })) : '';
+      // No other unique values are available so the key will include
+      // index
+      const key = `page${index}`;
+      return /*#__PURE__*/_jsx("li", {
+        className: `page-item ${page.active ? 'active' : ''}`,
+        children: /*#__PURE__*/_jsx(PageLink, {
+          path: location.pathname,
+          page: PAGE_NUMBER,
+          label: PAGE_LABEL,
+          searchQuery: location.search
+        })
+      }, key);
+    })
+  }) : '';
 }
 
 //

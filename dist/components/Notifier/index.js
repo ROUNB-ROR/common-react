@@ -5,6 +5,7 @@ import ToastBody from 'react-bootstrap/ToastBody';
 import NotificationService from '../../services/notifying';
 
 //
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 export default function Notifier() {
   //
   const [notifications, setNotifications] = useState([]);
@@ -36,16 +37,22 @@ export default function Notifier() {
     // Cleaning the notifier callback
     NotificationService.onNotify = null;
   }, []);
-  return /*#__PURE__*/React.createElement("div", {
-    className: "notifications position-fixed bottom-0 right-0 p-3"
-  }, notifications.map(notification => /*#__PURE__*/React.createElement(Toast, {
-    key: `notification${notification.id}`,
-    id: `notification${notification.id}`,
-    show: true,
-    autohide: true,
-    delay: "8000",
-    onClose: () => onClose(notification.id)
-  }, /*#__PURE__*/React.createElement(ToastHeader, null, /*#__PURE__*/React.createElement("strong", {
-    className: "mr-auto"
-  }, notification.header)), /*#__PURE__*/React.createElement(ToastBody, null, notification.message))));
+  return /*#__PURE__*/_jsx("div", {
+    className: "notifications position-fixed bottom-0 right-0 p-3",
+    children: notifications.map(notification => /*#__PURE__*/_jsxs(Toast, {
+      id: `notification${notification.id}`,
+      show: true,
+      autohide: true,
+      delay: "8000",
+      onClose: () => onClose(notification.id),
+      children: [/*#__PURE__*/_jsx(ToastHeader, {
+        children: /*#__PURE__*/_jsx("strong", {
+          className: "mr-auto",
+          children: notification.header
+        })
+      }), /*#__PURE__*/_jsx(ToastBody, {
+        children: notification.message
+      })]
+    }, `notification${notification.id}`))
+  });
 }

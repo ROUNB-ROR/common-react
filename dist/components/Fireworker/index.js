@@ -5,6 +5,7 @@ import Particle from './Particle';
 import FireworksService from '../../services/fireworking';
 
 //
+import { jsx as _jsx } from "react/jsx-runtime";
 export default function Fireworker() {
   const [particles] = useState([]);
   const [probability] = useState(0.04);
@@ -162,12 +163,13 @@ export default function Fireworker() {
     // Cleaning the callback
     FireworksService.onDoFireworks = null;
   }, []);
-  return isFireworking ? /*#__PURE__*/React.createElement("div", {
+  return isFireworking ? /*#__PURE__*/_jsx("div", {
     id: "fireworks",
     role: "presentation",
     onClick: () => onFireworksClick(),
-    onKeyUp: () => onFireworksClick()
-  }, /*#__PURE__*/React.createElement("canvas", {
-    id: "fireworksCanvas"
-  })) : '';
+    onKeyUp: () => onFireworksClick(),
+    children: /*#__PURE__*/_jsx("canvas", {
+      id: "fireworksCanvas"
+    })
+  }) : '';
 }

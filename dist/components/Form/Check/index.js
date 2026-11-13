@@ -5,6 +5,7 @@ import './styles.scss';
 import { isValid, isInvalid, getFeedback } from '../validation';
 
 //
+import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
 export default function FormCheck(props) {
   //
   const {
@@ -20,9 +21,10 @@ export default function FormCheck(props) {
   } = props;
 
   //
-  const label = hidden ? '' : /*#__PURE__*/React.createElement(RBForm.Label, {
-    htmlFor: name
-  }, displayName);
+  const label = hidden ? '' : /*#__PURE__*/_jsx(RBForm.Label, {
+    htmlFor: name,
+    children: displayName
+  });
 
   // Classes for control
   const controlClasses = [];
@@ -31,7 +33,7 @@ export default function FormCheck(props) {
   const controlClassName = controlClasses.join(' ');
 
   // Control element
-  const controlElement = /*#__PURE__*/React.createElement(RBForm.Check, {
+  const controlElement = /*#__PURE__*/_jsx(RBForm.Check, {
     name: name,
     className: controlClassName,
     as: as,
@@ -45,15 +47,21 @@ export default function FormCheck(props) {
   });
 
   // Controls with feedback
-  const controls = /*#__PURE__*/React.createElement(React.Fragment, null, label, controlElement);
+  const controls = /*#__PURE__*/_jsxs(_Fragment, {
+    children: [label, controlElement]
+  });
   const feedback = getFeedback(errors, name);
 
   // Different wrapping depending on layout
-  const result = horizontal ? /*#__PURE__*/React.createElement("div", {
-    className: `horizontal d-flex${fullwidth ? ' flex-grow-1' : ''}`
-  }, /*#__PURE__*/React.createElement("div", {
-    className: fullwidth ? 'd-flex flex-grow-1' : ''
-  }, controls), feedback) : /*#__PURE__*/React.createElement(RBForm.Group, null, controls, feedback);
+  const result = horizontal ? /*#__PURE__*/_jsxs("div", {
+    className: `horizontal d-flex${fullwidth ? ' flex-grow-1' : ''}`,
+    children: [/*#__PURE__*/_jsx("div", {
+      className: fullwidth ? 'd-flex flex-grow-1' : '',
+      children: controls
+    }), feedback]
+  }) : /*#__PURE__*/_jsxs(RBForm.Group, {
+    children: [controls, feedback]
+  });
   return result;
 }
 FormCheck.propTypes = {

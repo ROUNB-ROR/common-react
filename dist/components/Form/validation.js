@@ -2,6 +2,7 @@ import React from 'react';
 import Feedback from 'react-bootstrap/Feedback';
 
 // Checks whether the form field is valid
+import { jsx as _jsx } from "react/jsx-runtime";
 const isValid = (errors, fieldName) => {
   let result = false;
   if (errors) result = typeof errors[fieldName] === 'undefined';
@@ -28,9 +29,10 @@ const getFeedback = (errors, fieldName) => {
       text = errors[fieldName];
     }
     // The resulting feedback
-    result = /*#__PURE__*/React.createElement(Feedback, {
-      type: "invalid"
-    }, text);
+    result = /*#__PURE__*/_jsx(Feedback, {
+      type: "invalid",
+      children: text
+    });
   }
   return result;
 };
